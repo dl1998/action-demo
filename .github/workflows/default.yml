@@ -11,6 +11,7 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Pylint action
         uses: dciborow/action-pylint@0.1.0
         with:
