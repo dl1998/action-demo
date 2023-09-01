@@ -31,27 +31,27 @@ jobs:
                 "link": "${{ env.repo_url }}/blob/main/LICENSE"
               },
               {
-                "badge": "https://img.shields.io/badge/Language-Python-blue?style=flat-square",
+                "badge": "https://img.shields.io/badge/Language-Python-blue",
                 "alt": "Language",
                 "link": "https://www.python.org/"
               },
               {
-                "badge": "https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square",
+                "badge": "https://img.shields.io/badge/PRs-Welcome-brightgreen.svg",
                 "alt": "PRs Welcome",
                 "link": "${{ env.repo_url }}/pulls"
               },
               {
-                "badge": "https://img.shields.io/static/v1?label=&labelColor=505050&message=marketplace&color=0076D6&style=flat-square&logo=google-chrome&logoColor=0076D6",
+                "badge": "https://img.shields.io/static/v1?label=&labelColor=505050&message=marketplace&color=0076D6&logo=google-chrome&logoColor=0076D6",
                 "alt": "website",
                 "link": "https://github.com/marketplace/actions/${{ env.repo_name }}"
               },
               {
-                "badge": "https://img.shields.io/github/workflow/status/${{ env.repo_owner }}/${{ env.repo_name }}/Release/master?logo=github&style=flat-square",
+                "badge": "https://img.shields.io/github/workflow/status/${{ env.repo_owner }}/${{ env.repo_name }}/Release/master?logo=github",
                 "alt": "build",
                 "link": "${{ env.repo_url }}/actions/workflows/add-badge.yml"
               },
               {
-                "badge": "https://img.shields.io/lgtm/grade/javascript/g/${{ env.repo_owner }}/${{ env.repo_name }}.svg?logo=lgtm&style=flat-square",
+                "badge": "https://img.shields.io/lgtm/grade/javascript/g/${{ env.repo_owner }}/${{ env.repo_name }}.svg?logo=lgtm",
                 "alt": "Language grade: JavaScript",
                 "link": "https://lgtm.com/projects/g/${{ env.repo_owner }}/${{ env.repo_name }}/context:javascript"
               }
