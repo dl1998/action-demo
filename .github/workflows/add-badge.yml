@@ -8,6 +8,7 @@ on:
       - main
 jobs:
   run:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Add Badges
