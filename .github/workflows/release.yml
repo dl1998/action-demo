@@ -64,6 +64,8 @@ jobs:
     permissions:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Generate dist
         run: |
           python3 -m pip install --upgrade build
