@@ -16,7 +16,7 @@ URL = 'https://github.com/dl1998/action-demo'
 EMAIL = 'dima.leschenko1998@gmail.com'
 AUTHOR = 'Dmytro Leshchenko'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 RELEASE = VERSION
 
 REQUIRED = [

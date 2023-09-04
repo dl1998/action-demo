@@ -7,9 +7,16 @@ jobs:
   prepare:
     permissions: write-all
     runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/project/action-demo/
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.7"
       - name: Add Badges
         # You may pin to the exact commit or the version.
         # uses: wow-actions/add-badges@43f2c1eaecfb2596b89a8136a3fbda4f18d1d188
@@ -54,20 +61,6 @@ jobs:
           path: README.md
           # Should center align the badges
           center: false
-  pypi-publish:
-    needs: prepare
-    name: Upload release to PyPI
-    runs-on: ubuntu-latest
-    environment:
-      name: testpypi
-      url: https://test.pypi.org/project/action-demo/
-    permissions: write-all
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.7"
       - name: Install pypa/build
         run: >-
           python3 -m
