@@ -16,7 +16,7 @@ URL = 'https://github.com/dl1998/action-demo'
 EMAIL = 'dima.leschenko1998@gmail.com'
 AUTHOR = 'Dmytro Leshchenko'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 RELEASE = VERSION
 
 REQUIRED = [
@@ -459,6 +459,7 @@ def main():
         version=about['__version__'],
         description=DESCRIPTION,
         long_description=long_description,
+        long_description_content_type='text/markdown',
         author=AUTHOR,
         author_email=EMAIL,
         maintainer=AUTHOR,
