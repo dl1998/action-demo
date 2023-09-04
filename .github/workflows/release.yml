@@ -13,44 +13,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.7"
-      - name: Add Badges
-        # You may pin to the exact commit or the version.
-        # uses: wow-actions/add-badges@43f2c1eaecfb2596b89a8136a3fbda4f18d1d188
-        uses: wow-actions/add-badges@v1.1.0
-        env:
-          repo_url: ${{ github.event.repository.html_url }}
-          repo_name: ${{ github.event.repository.name }}
-          repo_owner: ${{ github.event.repository.owner.login }}
-        with:
-          # Your GitHub token for authentication.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # The badges to add with JSON format
-          badges: |
-            [
-              {
-                "badge": "https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge",
-                "alt": "MIT License",
-                "link": "${{ env.repo_url }}/blob/main/LICENSE"
-              },
-              {
-                "badge": "https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python",
-                "alt": "Language",
-                "link": "https://www.python.org/"
-              },
-              {
-                "badge": "https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge",
-                "alt": "PRs Welcome",
-                "link": "${{ env.repo_url }}/pulls"
-              }
-            ]
-          # Path and file name to add badges
-          path: README.md
-          # Should center align the badges
-          center: false
       - name: Install pypa/build
         run: >-
           python3 -m

@@ -1,8 +1,5 @@
-name: Add Badges
+name: Perform Checks
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -52,16 +49,6 @@ jobs:
                 "badge": "https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge",
                 "alt": "PRs Welcome",
                 "link": "${{ env.repo_url }}/pulls"
-              },
-              {
-                "badge": "https://img.shields.io/static/v1?label=&labelColor=505050&style=for-the-badge&message=marketplace&color=0076D6&logo=google-chrome&logoColor=0076D6",
-                "alt": "website",
-                "link": "https://github.com/marketplace/actions/${{ env.repo_name }}"
-              },
-              {
-                "badge": "https://img.shields.io/github/workflow/status/${{ env.repo_owner }}/${{ env.repo_name }}/Release/main?style=for-the-badge&logo=github",
-                "alt": "build",
-                "link": "${{ env.repo_url }}/actions/workflows/add-badge.yml"
               }
             ]
           # Path and file name to add badges
