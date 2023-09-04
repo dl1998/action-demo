@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   prepare:
     permissions: write-all
@@ -37,9 +39,11 @@ jobs:
           repository-url: "https://test.pypi.org/legacy/"
       - name: Release Version
         id: version
-        run: echo "VERSION=$(python3 setup.py --version)" >> $GITHUB_ENV
+        run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
+      - name: Show version
+        run: echo $VERSION
       - uses: rymndhng/release-on-push-action@master
         with:
           bump_version_scheme: norelease
           use_github_release_notes: true
-          release_name: "Release ${{ env.VERSION }}"
+          release_name: "Release $VERSION"
