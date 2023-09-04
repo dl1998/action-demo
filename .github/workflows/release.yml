@@ -66,6 +66,7 @@ jobs:
     steps:
       - name: Generate dist
         run: |
+          ls -lah
           python3 -m pip install --upgrade build
           python3 -m build
       # retrieve your distributions here
