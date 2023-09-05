@@ -67,5 +67,5 @@ jobs:
         run: echo $VERSION
       - uses: ncipollo/release-action@v1
         with:
-          tag: "v${{ VERSION }}"
-          name: "Release v${{ VERSION }}"
+          tag: "v${{ env.VERSION }}"
+          name: "Release v${{ env.VERSION }}"
