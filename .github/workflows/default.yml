@@ -65,7 +65,13 @@ jobs:
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
       - name: Show version
         run: echo $VERSION
+      - name: "✏️ Generate release changelog"
+        uses: heinrichreimer/github-changelog-generator-action@v2.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          future-release: "v${{ env.VERSION }}"
       - uses: ncipollo/release-action@v1
         with:
           tag: "v${{ env.VERSION }}"
           name: "Release v${{ env.VERSION }}"
+          bodyFile: CHANGELOG.md
