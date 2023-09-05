@@ -65,8 +65,7 @@ jobs:
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
       - name: Show version
         run: echo $VERSION
-      - uses: rymndhng/release-on-push-action@master
+      - uses: ncipollo/release-action@v1
         with:
-          bump_version_scheme: norelease
-          use_github_release_notes: true
-          release_name: "Release $VERSION"
+          tag: "v$VERSION"
+          name: "Release v$VERSION"
