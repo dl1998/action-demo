@@ -26,7 +26,7 @@ jobs:
           # Change reporter level if you need.
           # GitHub Status Check won't become failure with warning.
           level: warning
-          glob_pattern: "**/*.py"
+          glob_pattern: "sources/**/*.py"
       - name: Behave Tests
         run: coverage run --source="sources" -m behave tests/qualification_tests
       - name: Generate XML coverage report
