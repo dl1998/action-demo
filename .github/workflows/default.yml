@@ -12,7 +12,7 @@ jobs:
     name: Perform Standard Checks
     permissions:
       contents: write
-      pull-requests: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
