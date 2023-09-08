@@ -38,6 +38,7 @@ jobs:
         with:
           coverageFile: coverage.xml
           token: ${{ secrets.GITHUB_TOKEN }}
+          thresholdAll: 0.9
       - name: Add Badges
         # You may pin to the exact commit or the version.
         # uses: wow-actions/add-badges@43f2c1eaecfb2596b89a8136a3fbda4f18d1d188
