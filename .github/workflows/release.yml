@@ -24,7 +24,7 @@ jobs:
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          future-release: "v${{ env.VERSION }}"
+          futureRelease: "v${{ env.VERSION }}"
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
