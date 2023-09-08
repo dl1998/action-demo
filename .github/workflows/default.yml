@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Pylint action
+      - name: Run Pylint
         uses: dciborow/action-pylint@0.1.0
         with:
           github_token: ${{ secrets.github_token }}
@@ -27,6 +27,15 @@ jobs:
           # GitHub Status Check won't become failure with warning.
           level: warning
           glob_pattern: "**/*.py"
+      - name: Behave Tests
+        run: coverage run --source="sources" -m behave tests/qualification_tests
+      - name: Generate XML coverage report
+        run: coverage xml
+      - name: Get Coverage
+        uses: orgoro/coverage@v3.1
+        with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Add Badges
         # You may pin to the exact commit or the version.
         # uses: wow-actions/add-badges@43f2c1eaecfb2596b89a8136a3fbda4f18d1d188
