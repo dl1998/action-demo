@@ -1,6 +1,6 @@
 from behave import *
 
-from sources.sub_module.util import A
+from sources.sub_module.util import A, B
 
 use_step_matcher("re")
 
@@ -36,3 +36,28 @@ def step_impl(context):
     :type context: behave.runner.Context
     """
     assert context.result == 3
+
+
+@when("perform method")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    b = B()
+    b.another_method()
+
+
+@given("nothing")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    pass
+
+
+@then("prints 'Something'")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    assert 'Something' in context.stdout_capture.getvalue()
