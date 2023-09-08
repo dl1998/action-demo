@@ -5,7 +5,8 @@ on:
 permissions:
     contents: write
 jobs:
-  docs:
+  sphinx-docs:
+    name: Sphinx Documentation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
