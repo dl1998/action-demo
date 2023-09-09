@@ -40,6 +40,9 @@ jobs:
           coverageFile: coverage.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           thresholdAll: 0.9
+      - name: Retrieve Total Coverage
+        id: coverage
+        run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }')" >> "$GITHUB_ENV"
       - name: Retrieve Release Version
         id: version
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
@@ -81,6 +84,10 @@ jobs:
                 "badge": "https://img.shields.io/badge/PyPi-${{ env.VERSION }}-brightgreen.svg?style=for-the-badge",
                 "alt": "PyPi ${{ env.VERSION }}",
                 "link": "https://pypi.org/project/${{ env.REPOSITORY_NAME }}/"
+              },
+              {
+                "badge": "https://img.shields.io/badge/Coverage-${{ env.TOTAL_COVERAGE }}-gray.svg?style=for-the-badge",
+                "alt": "Coverage ${{ env.TOTAL_COVERAGE }}"
               }
             ]
           # Path and file name to add badges
