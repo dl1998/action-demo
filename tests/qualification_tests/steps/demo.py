@@ -3,7 +3,7 @@ from pathlib import Path
 
 from behave import *
 
-sys.path.append(str(Path('../../../sources').absolute()))
+sys.path.append(str(Path('sources').absolute()))
 print(sys.path)
 
 from sources.main import main
