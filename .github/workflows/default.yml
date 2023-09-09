@@ -50,9 +50,9 @@ jobs:
           fail-on-error: false
           script: |
             if (int("${{ env.TOTAL_COVERAGE }}") / 100.0) < float("${{ env.THRESHOLD }}"):
-              print("red")
+              print("red", end='')
             else:
-              print("green")
+              print("green", end='')
       - name: Retrieve Release Version
         id: version
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
