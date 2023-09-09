@@ -19,14 +19,6 @@ REQUIRES_PYTHON = '>=3.7.0'
 VERSION = '1.1.7'
 RELEASE = VERSION
 
-REQUIRED = [
-
-]
-
-EXTRAS = [
-
-]
-
 here = os.path.abspath(os.path.dirname(__file__))
 
 long_description = ''
