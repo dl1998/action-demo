@@ -5,6 +5,8 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/dl1998/action-demo/blob/main/LICENSE)
 [![Language](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge)](https://github.com/dl1998/action-demo/pulls)
+[![TestPyPi 1.1.7](https://img.shields.io/badge/TestPyPi-1.1.7-brightgreen.svg?style=for-the-badge)](https://test.pypi.org/project/action-demo/)
+[![PyPi 1.1.7](https://img.shields.io/badge/PyPi-1.1.7-brightgreen.svg?style=for-the-badge)](https://pypi.org/project/action-demo/)
 <!-- [END BADGES] -->
 
 Repository for testing Github Actions
