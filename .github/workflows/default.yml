@@ -43,6 +43,7 @@ jobs:
           thresholdAll: ${{ env.THRESHOLD }}
       - name: Retrieve Total Coverage
         id: coverage
+        if: '!cancelled()'
         run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }' | sed 's/%//g')" >> "$GITHUB_ENV"
       - uses: jannekem/run-python-script-action@v1
         id: coverage-color
