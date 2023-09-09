@@ -49,7 +49,7 @@ jobs:
         with:
           fail-on-error: false
           script: |
-            if (int("${{ env.TOTAL_COVERAGE }}") / 100) < int("${{ env.THRESHOLD }}"):
+            if (int("${{ env.TOTAL_COVERAGE }}") / 100.0) < float("${{ env.THRESHOLD }}"):
               print("red")
             else:
               print("green")
