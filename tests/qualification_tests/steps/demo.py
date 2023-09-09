@@ -1,10 +1,14 @@
+import sys
+from pathlib import Path
+
 from behave import *
+
+sys.path.append(str(Path('../../../sources').absolute()))
 
 from sources.main import main
 from sources.sub_module.util import A, B
 
 use_step_matcher("re")
-
 
 @when("first argument is 1")
 def step_impl(context):
