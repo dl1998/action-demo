@@ -7,6 +7,7 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   REPOSITORY_NAME: 'action-demo'
+  THRESHOLD: 0.9
 permissions: write-all
 jobs:
   standard-checks:
@@ -39,10 +40,19 @@ jobs:
         with:
           coverageFile: coverage.xml
           token: ${{ secrets.GITHUB_TOKEN }}
-          thresholdAll: 0.9
+          thresholdAll: ${{ env.THRESHOLD }}
       - name: Retrieve Total Coverage
         id: coverage
-        run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }' | sed 's/%/%25/g')" >> "$GITHUB_ENV"
+        run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }' | sed 's/%//g')" >> "$GITHUB_ENV"
+      - uses: jannekem/run-python-script-action@v1
+        id: coverage-color
+        with:
+          fail-on-error: false
+          script: |
+            if (int("${{ env.TOTAL_COVERAGE }}") / 100) < int("${{ env.THRESHOLD }}"):
+              print("red")
+            else:
+              print("green")
       - name: Retrieve Release Version
         id: version
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
@@ -86,8 +96,8 @@ jobs:
                 "link": "https://pypi.org/project/${{ env.REPOSITORY_NAME }}/"
               },
               {
-                "badge": "https://img.shields.io/badge/Coverage-${{ env.TOTAL_COVERAGE }}-gray.svg?style=for-the-badge",
-                "alt": "Coverage ${{ env.TOTAL_COVERAGE }}"
+                "badge": "https://img.shields.io/badge/Coverage-${{ env.TOTAL_COVERAGE }}%25-${{ steps.coverage-color.outputs.stdout }}.svg?style=for-the-badge",
+                "alt": "Coverage ${{ env.TOTAL_COVERAGE }}%"
               }
             ]
           # Path and file name to add badges
