@@ -43,8 +43,11 @@ jobs:
           thresholdAll: ${{ env.THRESHOLD }}
       - name: Retrieve Total Coverage
         id: coverage
+        if: '!cancelled()'
         run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }' | sed 's/%//g')" >> "$GITHUB_ENV"
-      - uses: jannekem/run-python-script-action@v1
+      - name: Retrieve Coverage Color
+        if: '!cancelled()'
+        uses: jannekem/run-python-script-action@v1
         id: coverage-color
         with:
           fail-on-error: false
@@ -55,8 +58,10 @@ jobs:
               print("green", end='')
       - name: Retrieve Release Version
         id: version
+        if: '!cancelled()'
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
       - name: Add Badges
+        if: '!cancelled()'
         # You may pin to the exact commit or the version.
         # uses: wow-actions/add-badges@43f2c1eaecfb2596b89a8136a3fbda4f18d1d188
         uses: wow-actions/add-badges@v1.1.0
