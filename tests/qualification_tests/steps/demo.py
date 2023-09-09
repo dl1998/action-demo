@@ -1,5 +1,6 @@
 from behave import *
 
+from sources.main import main
 from sources.sub_module.util import A, B
 
 use_step_matcher("re")
@@ -61,3 +62,19 @@ def step_impl(context):
     :type context: behave.runner.Context
     """
     assert 'Something' in context.stdout_capture.getvalue()
+
+
+@when("perform method main")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    main()
+
+
+@then("prints 'This method has no description\. Simulate Changes\.'")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    assert 'This method has no description. Simulate Changes.' in context.stdout_capture.getvalue()

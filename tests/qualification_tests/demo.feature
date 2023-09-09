@@ -12,3 +12,8 @@ Feature: # Enter feature name here
     When perform method
     Given nothing
     Then prints 'Something'
+
+  Scenario: main test
+    When perform method main
+    Given nothing
+    Then prints 'This method has no description. Simulate Changes.'
