@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  REPOSITORY_NAME: 'action-demo'
 permissions: write-all
 jobs:
   standard-checks:
@@ -39,6 +40,9 @@ jobs:
           coverageFile: coverage.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           thresholdAll: 0.9
+      - name: Retrieve Release Version
+        id: version
+        run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
       - name: Add Badges
         # You may pin to the exact commit or the version.
         # uses: wow-actions/add-badges@43f2c1eaecfb2596b89a8136a3fbda4f18d1d188
@@ -67,6 +71,16 @@ jobs:
                 "badge": "https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge",
                 "alt": "PRs Welcome",
                 "link": "${{ env.repo_url }}/pulls"
+              },
+              {
+                "badge": "https://img.shields.io/badge/TestPyPi-${{ env.VERSION }}-brightgreen.svg?style=for-the-badge",
+                "alt": "TestPyPi ${{ env.VERSION }}",
+                "link": "https://test.pypi.org/project/${{ env.REPOSITORY_NAME }}/"
+              },
+              {
+                "badge": "https://img.shields.io/badge/PyPi-${{ env.VERSION }}-brightgreen.svg?style=for-the-badge",
+                "alt": "PyPi ${{ env.VERSION }}",
+                "link": "https://pypi.org/project/${{ env.REPOSITORY_NAME }}/"
               }
             ]
           # Path and file name to add badges
