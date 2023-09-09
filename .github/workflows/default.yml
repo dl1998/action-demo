@@ -42,7 +42,7 @@ jobs:
           thresholdAll: 0.9
       - name: Retrieve Total Coverage
         id: coverage
-        run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }')" >> "$GITHUB_ENV"
+        run: echo "TOTAL_COVERAGE=$(coverage report | grep TOTAL | awk '{ print $4 }') | sed 's/%/%25/g'" >> "$GITHUB_ENV"
       - name: Retrieve Release Version
         id: version
         run: echo "VERSION=$(python3 setup.py --version)" >> "$GITHUB_ENV"
