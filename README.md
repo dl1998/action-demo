@@ -7,7 +7,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge)](https://github.com/dl1998/action-demo/pulls)
 [![TestPyPi 1.1.7](https://img.shields.io/badge/TestPyPi-1.1.7-brightgreen.svg?style=for-the-badge)](https://test.pypi.org/project/action-demo/)
 [![PyPi 1.1.7](https://img.shields.io/badge/PyPi-1.1.7-brightgreen.svg?style=for-the-badge)](https://pypi.org/project/action-demo/)
-![Coverage 91%25](https://img.shields.io/badge/Coverage-91%25-gray.svg?style=for-the-badge)
+![Coverage 91%](https://img.shields.io/badge/Coverage-91%25-green.svg?style=for-the-badge)
 <!-- [END BADGES] -->
 
 Repository for testing Github Actions
