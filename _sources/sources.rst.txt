@@ -1,0 +1,37 @@
+sources package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   sources.sub_module
+
+Submodules
+----------
+
+sources.fail\_tests module
+--------------------------
+
+.. automodule:: sources.fail_tests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+sources.main module
+-------------------
+
+.. automodule:: sources.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: sources
+   :members:
+   :undoc-members:
+   :show-inheritance:
