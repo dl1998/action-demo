@@ -1,2 +1,2 @@
 def method1():
-    print()
+    print('Print something')
